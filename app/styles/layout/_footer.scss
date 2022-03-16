@@ -1,0 +1,168 @@
+.footer{
+    &-top{
+        padding: 7.5rem 0 7rem;
+        @include flexBox(stretch, space-between);
+    }
+    &-column{
+        width: calc(25% - 2.5rem);
+        &:first-child{
+            width: calc(40% - 2.5rem);
+        }
+        &:nth-child(2){
+            width: calc(35% - 2.5rem);
+        }
+    }
+    &-blog{
+        @include flexBox(center);   
+        margin-bottom: 3rem;
+    }
+    &-blog-image{
+        @include size(12rem,8rem);
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+    &-blog-info{
+        padding-left: 2rem;
+    }
+    &-blog-title{
+        color: $title-color;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        line-height: 1.4;
+        font-weight: 500;
+        @include textClamp(2);
+    }
+    &-blog-date{
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+    &-heading{
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 500;
+        height: 4rem;
+        margin-bottom: 2rem;
+        &--logo{
+            text-transform: none;
+            font-size: 4.6rem;
+            font-weight: bold;
+            color: $gray-dark-color;
+        }
+    }
+    &-desc{
+        font-style: normal;
+        margin-bottom: 4.5rem;
+        margin-top: 2rem;
+    }
+    &-follower{
+        strong{
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    &-social{
+        @include flexBox(center);
+        margin-bottom: 3.5rem;
+        &-list{
+            a{
+                display: inline-block;
+                margin-left: 1.5rem;
+                i{
+                    font-size: 2rem;
+                    color: $third-color;
+                }
+            }
+        }
+    }
+    &-form{
+        width: 100%;
+        max-width: 38rem;
+        @include flexBox;
+    }
+    &-form-input{
+        width: 100%;
+        padding: 1.5rem;
+        background-color: white;
+        border: 1px solid #e5e5e5;
+        border-right: 0;
+        font-family: $secondary-font;
+        font-size: 1.5rem;
+        font-style: italic;
+        border-radius: 0;
+        line-height: normal;
+    }
+    &-form-button{
+        color: white;
+        text-transform: uppercase;
+        padding: 1.5rem 3.5rem;
+        border: 0;
+        background-color: $third-color;
+        font-weight: bold;
+        flex-shrink: 0;
+        font-size: 1.4rem;
+        border-radius: 0;
+    }
+    &-images{
+        @include flexBox(stretch,flex-start,row,flex,wrap);
+        margin-left: -0.2rem;
+    }
+    &-image{
+        width: calc(33.33% - 0.2rem);
+        margin-left: 0.2rem;
+        margin-bottom: 0.2rem;
+        padding-bottom: 33.33%;
+        height: 0;
+        position: relative;
+        img{
+            @include size(100%);
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    &-bottom{
+        border-top: 1px solid #e5e5e5;
+        padding: 2.5rem 0;
+        text-align: center;
+        span{
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+    &-more{
+        display: inline-block;
+        margin-top: 2rem;
+        color: $title-color;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            color: $primary-color;
+            font-weight: 600;
+        }
+    }
+
+    @include maxWidth(1023px){
+        &-top{
+            padding-bottom: 3rem;
+            padding-top: 5rem;
+            display: block;
+        }
+        &-column:not(:nth-child(99)){
+            width: 100%;
+            margin-bottom: 3rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @include maxWidth(479px){
+        &-form-button{
+            padding: 1.5rem;
+        }
+    }
+}

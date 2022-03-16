@@ -1,0 +1,126 @@
+.story{
+    padding: 10rem 0;
+    &-list{
+        @include flexBox(stretch, space-between);
+    }
+    &-item{
+        width: calc(33.33% - 2rem);
+    }
+    &-media{
+        position: relative;
+        margin-bottom: 2rem;
+    }
+    &-image{
+        @include size(100%,24rem);
+        object-fit: cover;
+    }
+    &-date{
+        background-color: $third-color;
+        padding: 1.5rem 2rem;
+        @include flexBox(center,center,column);
+        color: white;
+        position: absolute;
+        left: -1rem;
+        bottom: 1rem;
+        z-index: 2;
+        &-number{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    }
+    &-title{
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 1.8rem;
+        line-height: 1.4;
+    }
+    &-desc{
+        color: $text-color;
+        font-style: normal;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    &-meta{
+        @include flexBox(center);
+    }
+    &-meta-item{
+        margin-right: 2rem;
+    }
+    &-meta-icon{
+        color: $third-color;
+        margin-right: 0.5rem;
+        font-weight: 500;
+    }
+    &-meta-number{
+        color: $text-color;
+    }
+
+    @include maxWidth(1023px){
+        padding: 5rem 0;
+        &-image{
+            height: 14rem;
+        }
+        &-date{
+            padding: 1rem 1.5rem;
+            &-number{
+                font-size: 2.4rem;
+            }
+            &-text{
+                font-size: 1.5rem;
+            }
+        }
+        &-desc-inner{
+            font-size: 1.2rem;
+            @include textClamp(3);
+        }
+    }
+
+    @include maxWidth(767px){
+        padding-bottom: 0;
+        &-list{
+            display: block;
+        }
+        &-image{
+            height: auto;
+        }
+        &-item{
+            width: 100%;
+            margin-bottom: 5rem;
+        }
+        &-date{
+            bottom: 5px;
+            left: -5px;
+        }
+    }
+}
+
+.map{
+    padding: 6rem 0;
+    background: 
+        linear-gradient(to bottom, rgba(255, 255, 255,0.7),rgba(255, 255, 255,0.7)),
+        url("../images/img-map.png")
+        no-repeat center / cover;
+    &-content{
+        @include flexBox(center,center,column);
+    }
+    &-heading{
+        position: relative;
+        font-size: 2.4rem;
+        font-weight: bold;
+        color: $primary-color;
+        padding-bottom: 2rem;
+        margin-top: 1.5rem;
+        text-transform: uppercase;
+        &::after{
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            @include size(6rem,0.4rem);
+            background-color: $primary-color;
+        }
+    }
+}

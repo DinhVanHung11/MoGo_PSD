@@ -1,0 +1,90 @@
+.about{
+    padding-top: 9rem;
+    padding-bottom: 11rem;
+    background-color: white;
+    /* ================== CSS Flexbox ================
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -3rem;
+    }
+    &-item{
+        margin-left: 3rem;
+        width: calc(33.33% - 3rem);
+    }
+    */
+    /* ================ CSS Grid ===================*/
+    &-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0 3rem;
+    }
+    &-item{
+        position: relative;
+        z-index: 1;
+        transition: all 0.25s ease-out;
+        &::after{
+            content: "";
+            @include absoluteFull();
+            @include bg($third-color);
+            transition: all 0.25s ease-out;
+            z-index: -1;
+        }
+    }
+    &-item:hover{
+        transform: translate(-1rem,-1rem);
+        .about-content{
+            opacity: 1;
+            visibility: visible;
+        }
+        &::after{
+            transform: translate(1rem, 1rem);
+        }
+    }
+    &-content{
+        @include absoluteFull();
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.25s linear;
+        content: "";
+        background: 
+        linear-gradient(to bottom, 
+        rgba($primary-color,0.7),
+        rgba($secondary-color,0.7));
+        z-index:2;
+        @include flexBox(center,center,column);
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 2rem;
+    }
+    &-icon{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    &-title{
+        font-weight: bold;
+        font-size: 1.8rem;
+        line-height: 1.4;
+        @include textClamp;
+    }
+
+    @include maxWidth(767px){
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        &-list{
+            grid-auto-columns: 80%; ;
+            grid-auto-flow: column;
+            grid-template-columns: unset;
+            grid-column-gap: 2.5rem;
+            overflow-x: auto;
+            @include hideSroll();
+            padding: 1rem;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+        }
+        &-item{
+            scroll-snap-align: center;
+        }
+    }
+}

@@ -1,0 +1,116 @@
+.quote{
+    padding: 6.5rem 0;
+    @include bg($gray-color);
+    // &-container{
+    //     @include flexBox(center,space-between);
+    // } ko dùng display: flex mặc dù vị trí 2 mũi tên khá là đẹp nhưng khi xuống màn hình khác sẽ rất xấu
+    &-arrow{
+        cursor: pointer;
+        font-size: 3rem;
+        color: $gray-dark-color;
+        padding: 1rem 2rem;
+    }
+    &-item{
+        padding-left: 5.5rem;
+        padding-right: 5.5rem;
+        @include flexBox(center);
+    }
+    &-icon{
+        @include size(15rem);
+        @include flexBox(center,center);
+        border: 3px solid $third-color;
+        flex-shrink: 0;
+        margin-right: 6rem;
+        img{
+            @include size(6.3rem,6.1rem);
+            object-fit: cover;
+        }
+    }
+    &-image{
+        @include size(18rem);
+        object-fit: cover;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: 2.5rem;
+    }
+    &-desc{
+        font-size: 2.4rem;
+        font-weight: 300;
+        line-height: 1.6;
+        font-style: italic;
+        font-family: $secondary-font;
+        color: $text-color;
+        @include textClamp(3);
+    }
+    &-author{
+        position: relative;
+        font-family: $third-font;
+        font-size: 2.4rem;
+        padding-left: 7rem;
+        &::before{
+            content: "";
+            @include absoluteCenter("top");
+            left: 0;
+            @include size(6rem,0.4rem);
+            background-color: $primary-color;
+        }
+    }
+
+    //Slick Slider
+    .slick-initialized .slick-slide{
+        display: flex;
+    }
+    .slick-arrow{
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        font-size: 3rem;
+        color: $gray-dark-color;
+        padding: 1rem 2rem;
+        @include absoluteCenter("top");
+        z-index: 10;
+    }
+    .slick-prev{
+        left: 0;
+    }
+    .slick-next{
+        right: 0;
+    }
+    @include maxWidth(767px){
+        &-arrow{
+            display: none;
+        }
+        &-item{
+            padding: 0;
+            flex-direction: column;
+        }
+        &-icon{
+            margin-right: 0;
+            @include size(10rem);
+            img{
+                @include size(5rem,4rem);
+                object-fit: cover;
+            }
+        }
+        &-image{
+            margin-right: 0;
+            img{
+                @include size(5rem,4rem);
+                object-fit: cover;
+            }
+        }
+        &-info{
+            padding-left: 0;
+            margin-top: 2.6rem;
+        }
+        &-desc{
+            display: block;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        &-author{
+            font-size: 2rem;
+        }
+    }
+}

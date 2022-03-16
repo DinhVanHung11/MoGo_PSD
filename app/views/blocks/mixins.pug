@@ -1,0 +1,109 @@
+mixin menuLink(title,href = "#")
+	li.header-menu-item
+		a.header-menu-link(href = href)= title 
+
+mixin headerBottomItem(number, title)
+	.header-bottom-item
+		span.header-bottom-number=  number 
+		span.header-bottom-text=  title 
+	
+mixin blockBox(caption, title, desc)
+	.block-Box
+		h3.block-Box-caption= caption 
+		h2.block-Box-heading= title 
+		if desc
+			p.block-Box-desc= desc
+
+mixin aboutItem(data)
+	.about-item 
+		img.about-image(src= data.src,alt= data.alt)
+		.about-content
+			i.about-icon(class= data.iconClass)
+			span.about-title= data.title 
+
+mixin serviceItem(src,title,desc)
+	.service-item 
+		img.service-item-image(src= src)
+		.service-item-info
+			h3.service-item-title= title 
+			p.service-item-desc= desc
+
+mixin wedoItem(src,title,desc,active = "")
+	.wedo-item(class= active)
+		.wedo-item-header 
+			img(src= src).wedo-item-icon
+			h3.wedo-item-title= title 
+			i.far.fa-angle-down.wedo-item-arrow
+		.wedo-item-content 
+			.wedo-item-text= desc
+
+mixin teamSocial(f="#",t="#",p="#".i="#")
+	ul.team-social
+		li.team-social-item 
+			a.team-social-link(href= f,target="_blank")
+				i.fab.fa-facebook-f
+		li.team-social-item 
+			a.team-social-link(href= t,target="_blank")
+				i.fab.fa-twitter
+		li.team-social-item 
+			a.team-social-link(href= p,target="_blank")
+				i.fab.fa-pinterest
+		li.team-social-item 
+			a.team-social-link(href= i,target="_blank")
+				i.fab.fa-instagram
+
+mixin teamItem(src= "./images/img-team2.png",name = "Matthew Dix",position= "Graphic Design")
+	.team-item
+		.team-main
+			img(src= src).team-image
+			.team-content
+				if block 
+					block
+		.team-info
+			h3.team-name= name
+			span.team-position= position
+
+mixin workItem(src="./images/img-work1.png", icon="far fa-image", title ="creatively designed", classFull ="", desc ="Lorem ipsum, dolor sit") 
+	.work-item(class= classFull)
+		img.work-image(src= src)
+		.work-content
+			i.work-icon(class= icon)
+			h3.work-title= title
+			span.work-desc.text.text--light= desc
+
+mixin peopleItem(src="./images/img-people4.png",name="Thanh Nga",job="Graphic Design", desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque repellendus optio totam earum fuga exercitationem sapiente, error magnam nulla commodi dignissimos, deserunt repudiandae.") 
+	li.people-item
+		img.people-avatar(src= src)
+		.people-info
+			h3.people-name= name
+			span.people-job.text.text--light= job
+			p.people-desc.text= desc
+
+mixin storyItem(src ="./images/img-blog1.png",datenum = "15", title="Lorem ipsum dolor sit amet",desc="Porro vel quo quia non id facilis hic magnam. Ad, eligendi adipisci laudantium incidunt similique, eius aliquid molestiae illum velit veritatis tempora?",metanum1="542",metanum2="17")
+	li.story-item
+		.story-media
+			img.story-image(src= src)
+			.story-date
+				span.story-date-number= datenum
+				span.story-date-text.text.text--light Jan
+		h3.story-title= title
+		.story-desc
+			p.story-desc-inner.text= desc
+		.story-meta
+			.story-meta-item
+				i.story-meta-icon.far.fa-eye
+				span.story-meta-number.text= metanum1
+			.story-meta-item
+				i.story-meta-icon.far.fa-comment-alt-dots 
+				span.story-meta-number.text= metanum2
+
+mixin quoteItem(src="./images/img-quote.png", type = false,desc= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit beatae aspernatur perferendis magni tempora officiis officia esse animi voluptate, dolorum excepturi alias assumenda repellendus rem nisi sapiente sequi cumque fugit?",author="Thanh Nga")
+	.quote-item 
+		if type == false
+			.quote-icon
+				img(src= src)
+		else 	
+			img(src= src).quote-image 
+		.quote-info     
+			p.quote-desc= desc
+			span.quote-author= author
